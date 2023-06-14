@@ -1,5 +1,5 @@
 # Ex_No_11_Thread-Synchronization
-Develop a program to perform Thread Synchronization using Android Studio
+Develop a program to perform Thread Synchronization using Android Studio 
 ## AIM:
 To Develop a program to perform Thread Synchronization using Android Studio.
 
@@ -28,25 +28,45 @@ Step 7: Save and run the application.
  ```
 /*
 Program to create an Option Menu
-Developed by: 
-RegisterNumber:  
+Developed by: S.LOKESH SAI DILEEP
+RegisterNumber: 212221230111
 */
 ```
 
 ## MainActivity.java:
+```
+package com.example.threadsyn;
 
+import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import java.util.concurrent.Semaphore;
+public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
 
+    // Object used for synchronizing access to counter
+    private static final Object lock = new Object();
 
+    // Maximum number of concurrent threads
+    // that can access the counter
+    private static final int MAX_THREADS = 5;
 
-## activity_main.xml:
+    // Semaphore to limit concurrent access to the counter
+    private static final Semaphore semaphore = new Semaphore(MAX_THREADS);
 
+    // Counter to store the
+    // number of button clicks
+    private int counter = 0;
 
-## AndroidMainfest.xml
-
-## Output
-
-
-
-## Result:
-Thus a Simple Android Application to create an Thread synchronization using Android Studio was developed and executed successfully.
+    // Reference to the text view to
+    // display the number of button clicks
+    private TextView textView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(
